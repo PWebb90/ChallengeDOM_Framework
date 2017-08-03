@@ -1,0 +1,163 @@
+package autoTest;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+import java.util.List;
+
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+
+public class AutomatedScripts
+{
+	WebDriver driver;
+	String url = "https://the-internet.herokuapp.com/challenging_dom";
+	ChallengeDom chlDom;
+	
+	/**
+	 * Tests the blue button by clicking on it and checking
+	 * the new URL is the same as the original.
+	 * @throws InterruptedException 
+	 */
+	@Test
+	public void BlueButton() throws InterruptedException
+	{
+		// Get the current page title.
+		String oldUrl = driver.getCurrentUrl();
+		
+		// Verify the colour of the button.
+		String bgColour = chlDom.btn_BlueButton().getCssValue("background-color");
+		String expectedColour = "2ba6cb";
+		Assert.assertEquals(bgColour,  expectedColour,
+				"Actual background-colour: [" + bgColour +
+				"] does not match expected colour: [" + expectedColour +"]");
+		
+		// Click on the blue button and wait a few seconds.
+		Output("Clicking on blue button with text: " + chlDom.btn_BlueButton().getText());
+		chlDom.btn_BlueButton().click();
+		Thread.sleep(4000);
+		
+		String newUrl = driver.getTitle();
+		
+		// Ensure the new page URL is the same as the old one.
+		Assert.assertEquals(newUrl, oldUrl,
+				"New URL: [" + newUrl +"] does not match old URL: [" + oldUrl +"]");
+		
+		Output("Test Passed.");
+	}
+	
+	/**
+	 * Tests the green button by clicking on it and checking
+	 * the new URL is the same as the original.
+	 * @throws InterruptedException 
+	 */
+	@Test
+	public void GreenButton() throws InterruptedException
+	{
+		// Get the current page title.
+		String oldUrl = driver.getCurrentUrl();
+		
+		// Click on the green button.
+		Output("Clicking on green button with text: " + chlDom.btn_GreenButton().getText());
+		chlDom.btn_GreenButton().click();
+		Thread.sleep(4000);
+		
+		String newUrl = driver.getTitle();
+		
+		// Ensure the new page URL is the same as the old one.
+		Assert.assertEquals(newUrl, oldUrl,
+				"New URL: [" + newUrl +"] does not match old URL: [" + oldUrl +"]");
+		
+		Output("Test Passed.");
+	}
+	
+	/**
+	 * Tests the red button by clicking on it and checking
+	 * the new URL is the same as the original.
+	 * @throws InterruptedException 
+	 */
+	@Test
+	public void RedButton() throws InterruptedException
+	{
+		// Get the current page title.
+		String oldUrl = driver.getCurrentUrl();
+		
+		// Click on the red button.
+		Output("Clicking on red button with text: " + chlDom.btn_RedButton().getText());
+		chlDom.btn_RedButton().click();
+		Thread.sleep(4000);
+		
+		String newUrl = driver.getTitle();
+		
+		// Ensure the new page URL is the same as the old one.
+		Assert.assertEquals(newUrl, oldUrl,
+				"New URL: [" + newUrl +"] does not match old URL: [" + oldUrl +"]");
+		
+		Output("Test Passed.");
+	}
+	
+	/**
+	 * Tests that the table headers contain the expected values.
+	 */
+	@Test
+	public void TableHeaders()
+	{
+		// Get the table header elements.
+		List<WebElement> tableHeaders = chlDom.tbl_GreekTable().findElements(By.tagName("th"));
+		
+		// Expected header text.
+		String[] headerText = { "Lorem", "Ipsum", "Dolor", "Sit", "Amet", "Diceret", "Action" };
+		
+		for (int i = 0; i < tableHeaders.size(); i++)
+		{
+			String expected = headerText[i];
+			String actual = tableHeaders.get(i).getText();
+			Assert.assertEquals(actual, expected,
+					"Incorrect value in table header " + (i + 1) +
+					".\nExpected: [" + expected + "]" +
+					"\nActual: [" + actual + "]");
+		}
+		
+		Output("Test Passed.");
+	}
+	
+	/**
+	 * This method runs before any test to create
+	 * the driver and open the URL under test.
+	 */
+	@Before
+	private void Setup()
+	{
+		Output("Starting driver...");
+		driver = new FirefoxDriver();
+		
+		Output("Navigating to: " + url);
+		driver.get(url);
+		
+		chlDom = new ChallengeDom(driver);
+	}
+	
+	/**
+	 * The TearDown closes the driver once
+	 * the test has completed.
+	 */
+	@After
+	private void TearDown()
+	{
+		Output("Closing driver...");
+		driver.quit();
+	}
+	
+	/**
+	 * This method takes a message and outputs it to the console.
+	 * @param message The message to output.
+	 */
+	private static void Output(String message)
+	{
+		System.out.println(message);
+	}
+}

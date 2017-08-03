@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="Rerun autoTest.AutomatedScripts.TableData" project="AutoFramework" tests="1" started="1" failures="0" errors="2" ignored="0">
+  <testcase name="TableData" classname="autoTest.AutomatedScripts" time="1267.044">
+    <error>org.openqa.selenium.WebDriverException: connection refused
+Build info: version: 'unknown', revision: 'unknown', time: 'unknown'
+System info: host: 'USER-PC', ip: '192.168.1.65', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_144'
+Driver info: driver.version: FirefoxDriver
+remote stacktrace: stack backtrace:
+   0:           0x4bb74f - &lt;no info&gt;
+   1:           0x4bbea9 - &lt;no info&gt;
+   2:           0x43ce8d - &lt;no info&gt;
+   3:           0x443c64 - &lt;no info&gt;
+   4:           0x447acf - &lt;no info&gt;
+   5:           0x4203e1 - &lt;no info&gt;
+   6:           0x407dc7 - &lt;no info&gt;
+   7:           0x6d95b9 - &lt;no info&gt;
+   8:           0x4173a7 - &lt;no info&gt;
+   9:           0x6d38b3 - &lt;no info&gt;
+  10:         0x77b159cd - BaseThreadInitThunk&#13;
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)&#13;
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)&#13;
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)&#13;
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)&#13;
+	at org.openqa.selenium.remote.W3CHandshakeResponse.lambda$new$0(W3CHandshakeResponse.java:57)&#13;
+	at org.openqa.selenium.remote.W3CHandshakeResponse.lambda$getResponseFunction$2(W3CHandshakeResponse.java:104)&#13;
+	at org.openqa.selenium.remote.ProtocolHandshake.lambda$createSession$22(ProtocolHandshake.java:365)&#13;
+	at java.util.stream.ReferencePipeline$3$1.accept(Unknown Source)&#13;
+	at java.util.Spliterators$ArraySpliterator.tryAdvance(Unknown Source)&#13;
+	at java.util.stream.ReferencePipeline.forEachWithCancel(Unknown Source)&#13;
+	at java.util.stream.AbstractPipeline.copyIntoWithCancel(Unknown Source)&#13;
+	at java.util.stream.AbstractPipeline.copyInto(Unknown Source)&#13;
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(Unknown Source)&#13;
+	at java.util.stream.FindOps$FindOp.evaluateSequential(Unknown Source)&#13;
+	at java.util.stream.AbstractPipeline.evaluate(Unknown Source)&#13;
+	at java.util.stream.ReferencePipeline.findFirst(Unknown Source)&#13;
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:368)&#13;
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:159)&#13;
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:142)&#13;
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)&#13;
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:637)&#13;
+	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:250)&#13;
+	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:236)&#13;
+	at org.openqa.selenium.remote.RemoteWebDriver.&lt;init&gt;(RemoteWebDriver.java:137)&#13;
+	at org.openqa.selenium.firefox.FirefoxDriver.&lt;init&gt;(FirefoxDriver.java:191)&#13;
+	at org.openqa.selenium.firefox.FirefoxDriver.&lt;init&gt;(FirefoxDriver.java:108)&#13;
+	at org.openqa.selenium.firefox.FirefoxDriver.&lt;init&gt;(FirefoxDriver.java:104)&#13;
+	at autoTest.AutomatedScripts.Setup(AutomatedScripts.java:200)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)&#13;
+	at java.lang.reflect.Method.invoke(Unknown Source)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)&#13;
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)&#13;
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)&#13;
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)&#13;
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)&#13;
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)&#13;
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)&#13;
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)&#13;
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)&#13;
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)&#13;
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)&#13;
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)&#13;
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:678)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)&#13;
+&#13;
+java.lang.NullPointerException&#13;
+	at autoTest.AutomatedScripts.TearDown(AutomatedScripts.java:216)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)&#13;
+	at java.lang.reflect.Method.invoke(Unknown Source)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:33)&#13;
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)&#13;
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)&#13;
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)&#13;
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)&#13;
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)&#13;
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)&#13;
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)&#13;
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)&#13;
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)&#13;
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)&#13;
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:678)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)&#13;
+&#13;
+</error>
+  </testcase>
+</testrun>

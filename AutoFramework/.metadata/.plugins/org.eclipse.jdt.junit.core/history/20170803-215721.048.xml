@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="AutomatedScripts (1)" project="AutoFramework" tests="10" started="10" failures="0" errors="0" ignored="0">
+  <testsuite name="autoTest.AutomatedScripts" time="94.855">
+    <testcase name="BlueButtonColour" classname="autoTest.AutomatedScripts" time="8.843"/>
+    <testcase name="TableHeaders" classname="autoTest.AutomatedScripts" time="6.92"/>
+    <testcase name="VerifyCanvas" classname="autoTest.AutomatedScripts" time="13.375"/>
+    <testcase name="TableData" classname="autoTest.AutomatedScripts" time="14.38"/>
+    <testcase name="GreenButtonColour" classname="autoTest.AutomatedScripts" time="9.282"/>
+    <testcase name="GreenButtonClick" classname="autoTest.AutomatedScripts" time="10.859"/>
+    <testcase name="TableLinks" classname="autoTest.AutomatedScripts" time="7.627"/>
+    <testcase name="RedButtonColour" classname="autoTest.AutomatedScripts" time="6.253"/>
+    <testcase name="RedButtonClick" classname="autoTest.AutomatedScripts" time="9.347"/>
+    <testcase name="BlueButtonClick" classname="autoTest.AutomatedScripts" time="7.969"/>
+  </testsuite>
+</testrun>
