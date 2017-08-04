@@ -61,11 +61,13 @@ public class AutomatedScripts
 		// Verify the colour of the button.
 		String bgColour = chlDom.btn_BlueButton().getCssValue("background-color");
 		String expectedColour = this.browser.equals(Browser.FIREFOX) ? "rgb(43, 166, 203)" : "rgba(43, 166, 203, 1)";
-		Assert.assertEquals(expectedColour, bgColour);
+		Assert.assertEquals("Expected background colour of blue button to be [" + expectedColour +
+				"] but was: [" + bgColour + "]", expectedColour, bgColour);
 		
 		String fontColour = chlDom.btn_BlueButton().getCssValue("color");
 		expectedColour = this.browser.equals(Browser.FIREFOX) ? "rgb(255, 255, 255)" : "rgba(255, 255, 255, 1)";
-		Assert.assertEquals(expectedColour, fontColour);
+		Assert.assertEquals("Expected font colour of blue button to be [" + expectedColour +
+				"] but was: [" + fontColour + "]", expectedColour, fontColour);
 		
 		Output("Test Passed.");
 	}
@@ -91,7 +93,8 @@ public class AutomatedScripts
 		String newUrl = driver.getCurrentUrl();
 		
 		// Ensure the new page URL is the same as the old one.
-		Assert.assertEquals(newUrl, expectedUrl);
+		Output("Verifying URL.");
+		Assert.assertEquals("Expected URL [" + expectedUrl + "] but was: [" + newUrl +"]", expectedUrl, newUrl);
 		
 		Output("Test Passed.");
 	}
@@ -106,11 +109,13 @@ public class AutomatedScripts
 		// Verify the colour of the button.
 		String bgColour = chlDom.btn_GreenButton().getCssValue("background-color");
 		String expectedColour = this.browser.equals(Browser.FIREFOX) ? "rgb(93, 164, 35)" : "rgba(93, 164, 35, 1)";
-		Assert.assertEquals(expectedColour,  bgColour);
+		Assert.assertEquals("Expected background colour of green button to be [" + expectedColour +
+				"] but was: [" + bgColour + "]", expectedColour,  bgColour);
 		
 		String fontColour = chlDom.btn_GreenButton().getCssValue("color");
 		expectedColour = this.browser.equals(Browser.FIREFOX) ? "rgb(255, 255, 255)" : "rgba(255, 255, 255, 1)";
-		Assert.assertEquals(expectedColour, fontColour);
+		Assert.assertEquals("Expected font colour of green button to be [" + expectedColour +
+				"] but was: [" + fontColour + "]", expectedColour, fontColour);
 		
 		Output("Test Passed.");
 	}
@@ -174,11 +179,13 @@ public class AutomatedScripts
 		// Verify the colour of the button.
 		String bgColour = chlDom.btn_RedButton().getCssValue("background-color");
 		String expectedColour = this.browser.equals(Browser.FIREFOX) ? "rgb(198, 15, 19)" : "rgba(198, 15, 19, 1)";
-		Assert.assertEquals(expectedColour, bgColour);
+		Assert.assertEquals("Expected background colour of red button to be [" + expectedColour +
+				"] but was: [" + bgColour + "]", expectedColour, bgColour);
 		
 		String fontColour = chlDom.btn_RedButton().getCssValue("color");
 		expectedColour = this.browser.equals(Browser.FIREFOX) ? "rgb(255, 255, 255)" : "rgba(255, 255, 255, 1)";
-		Assert.assertEquals(expectedColour, fontColour);
+		Assert.assertEquals("Expected font colour of green button to be [" + expectedColour +
+				"] but was: [" + fontColour + "]", expectedColour, fontColour);
 		
 		Output("Test Passed.");
 	}
@@ -199,7 +206,8 @@ public class AutomatedScripts
 		{
 			String expected = headerText[i];
 			String actual = tableHeaders.get(i).getText();
-			Assert.assertEquals(actual, expected);
+			Assert.assertEquals("Expected [" + expected + "] text in table header " + (i + 1) +
+					" but was: [" + actual +"]", expected, actual);
 		}
 		
 		Output("Test Passed.");
@@ -222,13 +230,15 @@ public class AutomatedScripts
 		// This number will be added to the expected strings.
 		int tableRowNum = 0;
 		
-		// When we verify a row this number will be incremented.
+		// When we verify a row this will be incremented.
 		int verifiedRows = 0;
 		
+		// Find all table rows.
 		List<WebElement> tableRows = chlDom.tbl_GreekTable().findElements(By.tagName("tr"));
 		
 		for (WebElement tableRow : tableRows)
 		{
+			// Find all cells in current row.
 			List<WebElement> tableCells = tableRow.findElements(By.tagName("td"));
 			
 			// The first 'tr' will contain the table headers, which contain no td's.
@@ -237,8 +247,10 @@ public class AutomatedScripts
 				for (int i = 0; i < expectedText.length; i++)
 				{
 					String expected = expectedText[i] + (tableRowNum - 1);
+					String actual = tableCells.get(i).getText();
 					Output("Checking cell " + (i + 1) + " in row " + tableRowNum + " equals: [" + expected + "]");
-					Assert.assertEquals(expected, tableCells.get(i).getText());
+					Assert.assertEquals("Expected [" + expected + "] in cell " + (i + 1) + ", row "
+							+ tableRowNum + " but was: [" + actual + "]", expected, actual);
 				}
 				
 				verifiedRows++;
@@ -259,25 +271,32 @@ public class AutomatedScripts
 	@Test
 	public void TableLinks()
 	{
+		// How many rows we expect to verify.
 		int expectedRows = 10;
+		
+		// Hyperlink text.
 		String hyperlinkText1 = "edit";
 		String hyperlinkText2 = "delete";
+		
+		// Find all table rows.
 		List<WebElement> tableRows = chlDom.tbl_GreekTable().findElements(By.tagName("tr"));
 		
 		int verifiedRows = 0;
 		int tableRowNum = 0;
 		for (WebElement tableRow : tableRows)
 		{
+			// Find all cells in current row.
 			List<WebElement> tableCells = tableRow.findElements(By.tagName("td"));
 			
 			// The first 'tr' will contain the table headers, which contain no td's.
 			if (!tableCells.isEmpty())
 			{
+				// Find all links in cell 6 of the current row.
 				List<WebElement> hyperlinks = tableCells.get(6).findElements(By.tagName("a"));
 				
 				// Verify 2 hyperlinks found in cell 6.
-				Assert.assertEquals("Expected 2 hyperlinks in row [" + tableRowNum +
-						"] cell [6] but found: [" + hyperlinks.size(),
+				Assert.assertEquals("Expected 2 hyperlinks in row " + tableRowNum +
+						", cell 6 but found: [" + hyperlinks.size() + "]",
 						2, hyperlinks.size());
 				
 				Output("Verifying hyperlink text in row " + tableRowNum + ".");
@@ -309,8 +328,10 @@ public class AutomatedScripts
 	@Test
 	public void VerifyCanvas()
 	{
+		// Get the canvas element.
 		WebElement canvas = chlDom.cnv_Canvas();
 		
+		// Verify it is displayed.
 		Assert.assertTrue("The Canvas element is not visible on the page", canvas.isDisplayed());
 		
 		Output("Test Passed.");
@@ -319,6 +340,7 @@ public class AutomatedScripts
 	/**
 	 * This method runs before any test to create
 	 * the driver and open the URL under test.
+	 * Also creates the ChallengeDom object.
 	 */
 	@Before
 	public void Setup()
